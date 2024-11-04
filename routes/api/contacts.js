@@ -51,7 +51,7 @@ router.put('/:contactId', async (req, res, next) => {
     : contacts.updateContact(contactId, name, email, phone).then(
         (result)=> {
           (result.contactUpdated === true)
-            ? res.status(202).json({ message: 'OK' })
+            ? res.status(202).json({ message: result.newContactList})
             : res.status(404).json({ message: 'Not found' }) 
         }
       )
